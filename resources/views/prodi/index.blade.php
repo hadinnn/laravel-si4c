@@ -1,6 +1,8 @@
 <h1>Data Prodi</h1>
-
-<table border="1" cellpadding="10">
+@extends('main')
+@section('content')
+@section('title', 'Program Studi')
+<table class="table table-bordered table-hover">
     <tr>
         <th>No</th>
         <th>Nama Prodi</th>
@@ -18,5 +20,5 @@
         <td>{{ $prodi->fakultas->nama ?? '-' }}</td>
     </tr>
     @endforeach
-
 </table>
+@endsection
