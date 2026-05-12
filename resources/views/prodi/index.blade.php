@@ -1,7 +1,9 @@
 <h1>Data Prodi</h1>
 @extends('main')
-@section('content')
 @section('title', 'Program Studi')
+@section('content')
+
+<h1>Data Program Studi</h1>
 <table class="table table-bordered table-hover">
     <tr>
         <th>No</th>
