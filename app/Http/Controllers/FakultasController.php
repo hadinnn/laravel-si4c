@@ -38,7 +38,7 @@ class FakultasController extends Controller
         $input = $request->validate([
             'nama' => 'required|unique:fakultas',
             'singkatan' => 'required',
-            'dekan' => 'required'
+            'dekan' => 'required|max:30'
         ]);
 
         //simpan data ke tabel fakultas

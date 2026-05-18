@@ -1,8 +1,7 @@
-<h1>Data Prodi</h1>
 @extends('main')
 @section('title', 'Program Studi')
 @section('content')
-
+<a href="{{ route('prodi.create') }}" class="btn btn-primary mb-3">Tambah Program Studi</a>
 <h1>Data Program Studi</h1>
 <table class="table table-bordered table-hover">
     <tr>
@@ -12,7 +11,6 @@
         <th>Kaprodi</th>
         <th>Fakultas</th>
     </tr>
-
     @foreach($prodis as $key => $prodi)
     <tr>
         <td>{{ $key + 1 }}</td>
@@ -23,4 +21,5 @@
     </tr>
     @endforeach
 </table>
+    
 @endsection
