@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -12,13 +13,18 @@ class DashboardController extends Controller
     public function index()
     {
         // DB::table('mahasiswas')
+        //Grafik 1 - per Program Studi
         $jumlahMahasiswa = DB::select('SELECT p.nama_prodi, count(*) as
         jumlah
         FROM laravelsi4c.mahasiswas m
         join laravelsi4c.prodis p
         on m.prodi_id = p.id
         GROUP BY p.nama_prodi');
-        return view('dashboard.index', compact('jumlahMahasiswa'));
+        // Grafik 2 — per Tahun Angkatan
+        $grafik_angkatan = DB::select("select left(m.npm,2) as Tahun_Angkatan, count(*) as jumlah
+        from laravelsi4c.mahasiswas m
+        group by left(m.npm,2)");
+        return view('dashboard', compact('jumlahMahasiswa', 'grafik_angkatan'));
     }
 
     /**
