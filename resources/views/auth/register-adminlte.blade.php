@@ -210,6 +210,7 @@
                 <p class="register-box-msg">Register a new membership</p>
 
                 <form action="{{ route('register') }}" method="post">
+                    @csrf
                     <div class="input-group mb-3">
                         <input name="name" type="text" class="form-control" placeholder="Full Name" />
                         <div class="input-group-text">
